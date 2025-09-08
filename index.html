@@ -5,473 +5,574 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Цирюльня - Парикмахерская в центре Казани</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Proxima+Nova:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Proxima Nova', sans-serif;
+        font-weight: 400;
+    }
 
-        :root {
-            --bg-color: #f8f5f0; /* Кремовый фон */
-            --text-color: #333333;
-            --accent-1: #a78a7f; /* Приглушенный терракотовый */
-            --accent-2: #6b8e7f; /* Мятный */
-            --accent-3: #4a5d6d; /* Глубокий синий */
-            --light-color: #e8e1d7;
-            --dark-color: #3c3c3c;
-        }
+    :root {
+        --bg-color: #f8f5f0;
+        --text-color: #333333;
+        --accent-1: #a78a7f;
+        --accent-2: #6b8e7f;
+        --accent-3: #4a5d6d;
+        --light-color: #e8e1d7;
+        --dark-color: #3c3c3c;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            scroll-behavior: smooth; /* Плавная прокрутка */
-        }
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        scroll-behavior: smooth;
+    }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    h1, h2, h3, .section-title, .logo {
+        font-family: 'Cormorant', serif;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+    }
 
-        /* Шапка */
-        header {
-            background-color: var(--bg-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    .hero h1 {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
 
+    .section-title {
+        font-weight: 600;
+    }
+
+    .logo {
+        font-weight: 600;
+    }
+
+    .service-content h3, .master-info h3, .contact-info h3 {
+        font-weight: 500;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Шапка - убрали sticky */
+    header {
+        background-color: var(--bg-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    .logo {
+        font-size: 28px;
+        color: var(--accent-1);
+        text-decoration: none;
+    }
+
+    .logo span {
+        color: var(--accent-3);
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav ul li {
+        margin-left: 25px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: color 0.3s;
+        cursor: pointer;
+    }
+
+    nav ul li a:hover {
+        color: var(--accent-1);
+    }
+
+    .cta-button {
+        background-color: var(--accent-1);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: var(--accent-3);
+    }
+
+    /* Главный баннер */
+    .hero {
+        padding: 80px 0;
+        background: linear-gradient(to right, rgba(168, 138, 127, 0.8), rgba(107, 142, 127, 0.7)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+        color: white;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 30px;
+    }
+
+    /* Преимущества */
+    .features {
+        padding: 70px 0;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        color: var(--accent-3);
+        margin-bottom: 50px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--accent-1);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .feature-card {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        color: var(--accent-1);
+        margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--accent-3);
+    }
+
+    /* Услуги */
+    .services {
+        padding: 70px 0;
+        background-color: var(--light-color);
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .service-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-img {
+        height: 200px;
+        background-color: var(--accent-1);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .service-content {
+        padding: 25px;
+    }
+
+    .service-content h3 {
+        color: var(--accent-3);
+        margin-bottom: 15px;
+    }
+
+    .service-content p {
+        margin-bottom: 20px;
+        color: var(--dark-color);
+    }
+
+    /* Аккордеон для цен */
+    .price-toggle {
+        background: none;
+        border: none;
+        color: var(--accent-1);
+        font-weight: 600;
+        cursor: pointer;
+        padding: 10px 0;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+    }
+
+    .price-toggle i {
+        transition: transform 0.3s ease;
+    }
+
+    .price-toggle.active i {
+        transform: rotate(180deg);
+    }
+
+    .price-accordion {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    .price-accordion.open {
+        max-height: 1000px;
+    }
+
+    .price-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        text-align: left;
+        font-size: 0.9rem;
+    }
+
+    .price-table th {
+        background-color: var(--accent-1);
+        color: white;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .price-table td {
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .price-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .price-table tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    /* Мастера */
+    .masters {
+        padding: 70px 0;
+    }
+
+    .masters-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .master-card {
+        text-align: center;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .master-img {
+        height: 280px;
+        background-color: var(--accent-2);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .master-info {
+        padding: 20px;
+    }
+
+    .master-info h3 {
+        color: var(--accent-3);
+        margin-bottom: 5px;
+    }
+
+    .master-info p {
+        color: var(--accent-1);
+        font-style: italic;
+    }
+
+    /* Галерея */
+    .gallery {
+        padding: 70px 0;
+        background-color: var(--light-color);
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .gallery-item {
+        height: 250px;
+        background-color: var(--accent-1);
+        background-position: center;
+        background-size: cover;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.03);
+    }
+
+    /* Отзывы */
+    .testimonials {
+        padding: 70px 0;
+    }
+
+    .testimonials-slider {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .testimonial {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        display: none;
+    }
+
+    .testimonial.active {
+        display: block;
+    }
+
+    .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+
+    .testimonial-author {
+        font-weight: 600;
+        color: var(--accent-3);
+    }
+
+    .testimonial-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .testimonial-nav button {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--accent-1);
+        cursor: pointer;
+        margin: 0 10px;
+    }
+
+    /* Контакты */
+    .contacts {
+        padding: 70px 0;
+        background-color: white;
+    }
+
+    .contacts-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .map-container img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+    }
+
+    .map-container img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .map-container a {
+       display: block;
+       width: 100%;
+       height: 100%;
+       border-radius: 10px;
+       overflow: hidden;
+    }
+
+    .contact-info h3 {
+        color: var(--accent-3);
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+
+    .contact-info p {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+    }
+
+    .contact-info i {
+        margin-right: 15px;
+        color: var(--accent-1);
+        width: 20px;
+        text-align: center;
+    }
+
+    /* Футер */
+    footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 30px 0 20px;
+        text-align: center;
+    }
+
+    .footer-content {
+        margin-bottom: 20px;
+    }
+
+    .copyright {
+        padding-top: 20px;
+        border-top: 1px solid #555;
+        color: #999;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 968px) {
+        .contacts-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .map-container {
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 768px) {
         .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
+            flex-direction: column;
+            text-align: center;
         }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--accent-1);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent-3);
-        }
-
+        
         nav ul {
-            display: flex;
-            list-style: none;
+            margin-top: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-
+        
         nav ul li {
-            margin-left: 25px;
+            margin: 5px 10px;
         }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent-1);
-        }
-
-        .cta-button {
-            background-color: var(--accent-1);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: var(--accent-3);
-        }
-
-        /* Главный баннер */
-        .hero {
-            padding: 80px 0;
-            background: linear-gradient(to right, rgba(168, 138, 127, 0.8), rgba(107, 142, 127, 0.7)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-            color: white;
-            text-align: center;
-        }
-
+        
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
         }
-
+        
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        /* Преимущества */
-        .features {
-            padding: 70px 0;
-            text-align: center;
+            font-size: 1rem;
         }
 
         .section-title {
-            font-size: 2.2rem;
-            color: var(--accent-3);
-            margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
+            font-size: 1.8rem;
         }
+    }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-1);
-        }
+    /* Стиль для активного пункта меню */
+    nav ul li a.active {
+        color: var(--accent-1);
+        font-weight: 600;
+    }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+    /* Модальное окно */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+    }
 
-        .feature-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
+    .modal-content {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 500px;
+        width: 90%;
+        position: relative;
+    }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--accent-1);
+    }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--accent-1);
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--accent-3);
-        }
-
-        /* Услуги */
-        .services {
-            padding: 70px 0;
-            background-color: var(--light-color);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .service-img {
-            height: 200px;
-            background-color: var(--accent-1);
-            background-position: center;
-            background-size: cover;
-        }
-
-        .service-content {
-            padding: 25px;
-        }
-
-        .service-content h3 {
-            color: var(--accent-3);
-            margin-bottom: 15px;
-        }
-
-        .service-content p {
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
-
-        /* Мастера */
-        .masters {
-            padding: 70px 0;
-        }
-
-        .masters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .master-card {
-            text-align: center;
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .master-img {
-            height: 280px;
-            background-color: var(--accent-2);
-            background-position: center;
-            background-size: cover;
-        }
-
-        .master-info {
-            padding: 20px;
-        }
-
-        .master-info h3 {
-            color: var(--accent-3);
-            margin-bottom: 5px;
-        }
-
-        .master-info p {
-            color: var(--accent-1);
-            font-style: italic;
-        }
-
-        /* Галерея */
-        .gallery {
-            padding: 70px 0;
-            background-color: var(--light-color);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .gallery-item {
-            height: 250px;
-            background-color: var(--accent-1);
-            background-position: center;
-            background-size: cover;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-
-        /* Отзывы */
-        .testimonials {
-            padding: 70px 0;
-        }
-
-        .testimonials-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            display: none;
-        }
-
-        .testimonial.active {
-            display: block;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--accent-3);
-        }
-
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .testimonial-nav button {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--accent-1);
-            cursor: pointer;
-            margin: 0 10px;
-        }
-
-        /* Футер */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--accent-2);
-        }
-
-        .footer-column p, .footer-column a {
-            color: #ccc;
-            margin-bottom: 10px;
-            display: block;
-            text-decoration: none;
-        }
-
-        .footer-column a:hover {
-            color: var(--accent-2);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #555;
-            color: #999;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .header-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 5px 10px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* Стиль для активного пункта меню */
-        nav ul li a.active {
-            color: var(--accent-1);
-            font-weight: 600;
-        }
-
-        /* Модальное окно */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--accent-1);
-        }
-
-        .phone-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-3);
-            margin: 20px 0;
-        }
-
-        /* Стили для таблицы цен */
-        .price-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .price-table th {
-            background-color: var(--accent-1);
-            color: white;
-            padding: 12px;
-        }
-
-        .price-table td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .price-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .price-table tr:hover {
-            background-color: #f9f9f9;
-        }
-    </style>
+    .phone-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--accent-3);
+        margin: 20px 0;
+    }
+</style>
 </head>
 <body>
     <!-- Модальное окно для телефона -->
@@ -484,168 +585,24 @@
         </div>
     </div>
 
-    <!-- Модальные окна для цен -->
-    <div class="modal" id="menPricesModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <h3>Мужские стрижки - Цены</h3>
-            <table class="price-table">
-                <tr>
-                    <th>Услуга</th>
-                    <th>Цена</th>
-                </tr>
-                <tr>
-                    <td>Стрижка с мытьем и укладкой</td>
-                    <td>1000 руб.</td>
-                </tr>
-                <tr>
-                    <td>Стрижка без мытья</td>
-                    <td>700 руб.</td>
-                </tr>
-                <tr>
-                    <td>Стрижка машинкой</td>
-                    <td>600 руб.</td>
-                </tr>
-                <tr>
-                    <td>Детская стрижка (до 10 лет)</td>
-                    <td>800 руб.</td>
-                </tr>
-                <tr>
-                    <td>Бритье головы</td>
-                    <td>900 руб.</td>
-                </tr>
-                <tr>
-                    <td>Королевское бритье опасной бритвой</td>
-                    <td>1200 руб.</td>
-                </tr>
-                <tr>
-                    <td>Оформление бороды и усов</td>
-                    <td>600 руб.</td>
-                </tr>
-                <tr>
-                    <td>Комплекс: стрижка + борода</td>
-                    <td>1400 руб.</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="modal" id="womenPricesModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <h3>Женские стрижки - Цены</h3>
-            <table class="price-table">
-                <tr>
-                    <th>Услуга</th>
-                    <th>Цена</th>
-                </tr>
-                <tr>
-                    <td>Женская стрижка (короткие волосы)</td>
-                    <td>1200 руб.</td>
-                </tr>
-                <tr>
-                    <td>Женская стрижка (средние волосы)</td>
-                    <td>1500 руб.</td>
-                </tr>
-                <tr>
-                    <td>Женская стрижка (длинные волосы)</td>
-                    <td>1800 руб.</td>
-                </tr>
-                <tr>
-                    <td>Стрижка челки</td>
-                    <td>400 руб.</td>
-                </tr>
-                <tr>
-                    <td>Укладка</td>
-                    <td>800 руб.</td>
-                </tr>
-                <tr>
-                    <td>Вечерняя укладка</td>
-                    <td>1500 руб.</td>
-                </tr>
-                <tr>
-                    <td>Окрашивание (короткие волосы)</td>
-                    <td>2000 руб.</td>
-                </tr>
-                <tr>
-                    <td>Окрашивание (длинные волосы)</td>
-                    <td>3500 руб.</td>
-                </tr>
-                <tr>
-                    <td>Мелирование</td>
-                    <td>2500 руб.</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="modal" id="nailsPricesModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <h3>Ногтевой сервис - Цены</h3>
-            <table class="price-table">
-                <tr>
-                    <th>Услуга</th>
-                    <th>Цена</th>
-                </tr>
-                <tr>
-                    <td>Маникюр (аппаратный)</td>
-                    <td>1200 руб.</td>
-                </tr>
-                <tr>
-                    <td>Маникюр (комбинированный)</td>
-                    <td>1000 руб.</td>
-                </tr>
-                <tr>
-                    <td>Покрытие лаком</td>
-                    <td>400 руб.</td>
-                </tr>
-                <tr>
-                    <td>Покрытие гель-лаком</td>
-                    <td>1500 руб.</td>
-                </tr>
-                <tr>
-                    <td>Снятие покрытия</td>
-                    <td>300 руб.</td>
-                </tr>
-                <tr>
-                    <td>Укрепление ногтей гелем</td>
-                    <td>800 руб.</td>
-                </tr>
-                <tr>
-                    <td>Педикюр</td>
-                    <td>1800 руб.</td>
-                </tr>
-                <tr>
-                    <td>Педикюр с покрытием</td>
-                    <td>2200 руб.</td>
-                </tr>
-                <tr>
-                    <td>SPA-уход для рук</td>
-                    <td>1000 руб.</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
     <!-- Шапка -->
-    <header>
-        <div class="container">
-            <div class="header-inner">
-                <a href="#" class="logo">Цирюль<span>ня</span></a>
-                <nav>
-                    <ul>
-                        <li><a href="#main" class="nav-link active">Главная</a></li>
-                        <li><a href="#services" class="nav-link">Услуги и цены</a></li>
-                        <li><a href="#masters" class="nav-link">Наши мастера</a></li>
-                        <li><a href="#gallery" class="nav-link">Галерея работ</a></li>
-                        <li><a href="#footer" class="nav-link">Контакты</a></li>
-                    </ul>
-                </nav>
-                <button class="cta-button" onclick="showPhoneModal()">Позвонить</button>
-            </div>
+<header>
+    <div class="container">
+        <div class="header-inner">
+            <a href="#" class="logo"><strong>Цирюльня</strong></a>
+            <nav>
+                <ul>
+                    <li><a href="#main" class="nav-link active">Главная</a></li>
+                    <li><a href="#services" class="nav-link">Услуги и цены</a></li>
+                    <li><a href="#masters" class="nav-link">Наши мастера</a></li>
+                    <li><a href="#gallery" class="nav-link">Галерея работ</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="cta-button" onclick="showPhoneModal()">Позвонить</button>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Главный баннер -->
     <section class="hero" id="main">
@@ -666,7 +623,7 @@
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <h3>Удобное расположение</h3>
-                    <p>Мы находимся в центре Казани на ул. Татарстан, 52, к нам легко добраться из любого района.</p>
+                    <p>Мы находимся в центре Казани на ул. Нариманова, 72/52, к нам легко добраться из любого района.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -696,23 +653,162 @@
                     <div class="service-content">
                         <h3>Мужские стрижки</h3>
                         <p>Профессиональные стрижки, бритье и уход за бородой от опытных барберов. Используем только качественные материалы.</p>
-                        <button class="cta-button" onclick="showPricesModal('menPricesModal')">Узнать цены</button>
+                        <button class="price-toggle" onclick="toggleAccordion(this)">
+                            Узнать цены
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="price-accordion">
+                            <table class="price-table">
+                                <tr>
+                                    <th>Услуга</th>
+                                    <th>Цена</th>
+                                </tr>
+                                <tr>
+                                    <td>Стрижка с мытьем и укладкой</td>
+                                    <td>1000 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Стрижка без мытья</td>
+                                    <td>700 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Стрижка машинкой</td>
+                                    <td>600 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Детская стрижка (до 10 лет)</td>
+                                    <td>800 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Бритье головы</td>
+                                    <td>900 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Королевское бритье опасной бритвой</td>
+                                    <td>1200 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Оформление бороды и усов</td>
+                                    <td>600 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Комплекс: стрижка + борода</td>
+                                    <td>1400 руб.</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="service-card">
                     <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1590540178356-7a3c4e3c0e6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="service-content">
                         <h3>Женские стрижки</h3>
                         <p>Стрижки, укладки, окрашивание и сложные техники от стилистов с опытом. Профессиональная косметика.</p>
-                        <button class="cta-button" onclick="showPricesModal('womenPricesModal')">Узнать цены</button>
+                        <button class="price-toggle" onclick="toggleAccordion(this)">
+                            Узнать цены
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="price-accordion">
+                            <table class="price-table">
+                                <tr>
+                                    <th>Услуга</th>
+                                    <th>Цена</th>
+                                </tr>
+                                <tr>
+                                    <td>Женская стрижка (короткие волосы)</td>
+                                    <td>1200 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Женская стрижка (средние волосы)</td>
+                                    <td>1500 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Женская стрижка (длинные волосы)</td>
+                                    <td>1800 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Стрижка челки</td>
+                                    <td>400 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Укладка</td>
+                                    <td>800 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Вечерняя укладка</td>
+                                    <td>1500 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Окрашивание (короткие волосы)</td>
+                                    <td>2000 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Окрашивание (длинные волосы)</td>
+                                    <td>3500 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Мелирование</td>
+                                    <td>2500 руб.</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="service-card">
                     <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1608248543865-c150216e50e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="service-content">
                         <h3>Ногтевой сервис</h3>
                         <p>Маникюр, педикюр и уход за руками от внимательных мастеров. Качественные материалы и стерильные инструменты.</p>
-                        <button class="cta-button" onclick="showPricesModal('nailsPricesModal')">Узнать цены</button>
+                        <button class="price-toggle" onclick="toggleAccordion(this)">
+                            Узнать цены
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="price-accordion">
+                            <table class="price-table">
+                                <tr>
+                                    <th>Услуга</th>
+                                    <th>Цена</th>
+                                </tr>
+                                <tr>
+                                    <td>Маникюр (аппаратный)</td>
+                                    <td>1200 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Маникюр (комбинированный)</td>
+                                    <td>1000 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Покрытие лаком</td>
+                                    <td>400 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Покрытие гель-лаком</td>
+                                    <td>1500 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Снятие покрытия</td>
+                                    <td>300 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Укрепление ногтей гелем</td>
+                                    <td>800 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Педикюр</td>
+                                    <td>1800 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>Педикюр с покрытием</td>
+                                    <td>2200 руб.</td>
+                                </tr>
+                                <tr>
+                                    <td>SPA-уход для рук</td>
+                                    <td>1000 руб.</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -741,7 +837,7 @@
                 <div class="master-card">
                     <div class="master-img" style="background-image: url('https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="master-info">
-                        <h3>Ольга Сидорова</h3>
+                        <h3>Ольга Сидорova</h3>
                         <p>Мастер ногтевого сервиса с 10-летним опытом</p>
                     </div>
                 </div>
@@ -758,7 +854,7 @@
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1633681926022-84c23e8f85b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1596466596120-2a8e4b5d1a51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1596466596120-2a8e4b5d1a51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=600&q=80');"></div>
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
             </div>
         </div>
@@ -789,19 +885,35 @@
         </div>
     </section>
 
+    <!-- Контакты -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts-grid">
+                <div class="map-container">
+    <a href="https://yandex.ru/maps/-/CLQ3V46v" target="_blank">
+        <img src="Logo/Logo.png" 
+             alt="Карта проезда к парикмахерской Цирюльня" 
+             style="width:100%;height:100%;object-fit:cover;border-radius:10px;cursor:pointer;">
+    </a>
+</div>
+                <div class="contact-info">
+                    <h3>Приходите к нам</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Казань, ул. Нариманова, 72/52</p>
+                    <p><i class="fas fa-phone"></i> 8 (843) 123-45-67</p>
+                    <p><i class="fas fa-clock"></i> Ежедневно с 10:00 до 19:00</p>
+                    <button class="cta-button" onclick="showPhoneModal()">Позвонить для записи</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Футер -->
     <footer id="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>О нас</h3>
                     <p>«Цирюльня» - это парикмахерская с уютной атмосферой, где каждый клиент найдет услугу по душе. Работаем с 2010 года.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Контакты</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Казань, ул. Татарстан, 52</p>
-                    <p><i class="fas fa-phone"></i> 8 (843) 123-45-67</p>
-                    <p><i class="fas fa-clock"></i> Ежедневно с 10:00 до 19:00</p>
                 </div>
             </div>
             <div class="copyright">
@@ -826,10 +938,6 @@
             document.getElementById('phoneModal').style.display = 'flex';
         }
 
-        function showPricesModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-        }
-
         function closeModal() {
             document.querySelectorAll('.modal').forEach(modal => {
                 modal.style.display = 'none';
@@ -844,6 +952,13 @@
                 }
             });
         });
+
+        // Аккордеон для цен
+        function toggleAccordion(button) {
+            button.classList.toggle('active');
+            const accordion = button.nextElementSibling;
+            accordion.classList.toggle('open');
+        }
 
         // Слайдер отзывов
         const testimonials = document.querySelectorAll('.testimonial');
