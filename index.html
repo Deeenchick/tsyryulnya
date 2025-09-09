@@ -19,6 +19,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Proxima+Nova:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Яндекс.Метрика -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(104083042, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104083042" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Яндекс.Метрика -->
     <style>
         * {
             margin: 0;
@@ -285,12 +302,18 @@
             max-height: 1000px;
         }
 
+        .price-table-container {
+            overflow-x: auto;
+            width: 100%;
+            margin: 15px 0;
+        }
+
         .price-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 15px 0;
             text-align: left;
             font-size: 0.9rem;
+            min-width: 500px;
         }
 
         .price-table th {
@@ -658,6 +681,21 @@
                 font-size: 1.8rem;
             }
             
+            /* Адаптивность для таблиц цен */
+            .price-table {
+                font-size: 14px;
+            }
+            
+            .price-table th, 
+            .price-table td {
+                padding: 8px 6px;
+            }
+            
+            .price-table th:nth-child(1),
+            .price-table td:nth-child(1) {
+                min-width: 180px;
+            }
+            
             /* Дополнительные стили для мобильных */
             .header-inner {
                 padding: 10px 0;
@@ -665,6 +703,23 @@
             
             .logo {
                 font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .price-table {
+                font-size: 12px;
+                min-width: 400px;
+            }
+            
+            .price-table th, 
+            .price-table td {
+                padding: 6px 4px;
+            }
+            
+            .price-table th:nth-child(1),
+            .price-table td:nth-child(1) {
+                min-width: 150px;
             }
         }
     </style>
@@ -772,50 +827,52 @@
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="price-accordion">
-                            <table class="price-table">
-                                <tr>
-                                    <th>Услуга</th>
-                                    <th>Цена</th>
-                                </tr>
-                                <tr>
-                                    <td>Стрижка с мытьем и укладкой</td>
-                                    <td>1000 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Стрижка без мытья</td>
-                                    <td>700 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Стрижка машинкой</td>
-                                    <td>600 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Детская стрижка (до 10 лет)</td>
-                                    <td>800 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Бритье головы</td>
-                                    <td>900 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Королевское бритье опасной бритвой</td>
-                                    <td>1200 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Оформление бороды и усов</td>
-                                    <td>600 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Комплекс: стрижка + борода</td>
-                                    <td>1400 руб.</td>
-                                </tr>
-                            </table>
+                            <div class="price-table-container">
+                                <table class="price-table">
+                                    <tr>
+                                        <th>Услуга</th>
+                                        <th>Цена</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Стрижка с мытьем и укладкой</td>
+                                        <td>1000 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Стрижка без мытья</td>
+                                        <td>700 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Стрижка машинкой</td>
+                                        <td>600 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Детская стрижка (до 10 лет)</td>
+                                        <td>800 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Бритье головы</td>
+                                        <td>900 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Королевское бритье опасной бритвой</td>
+                                        <td>1200 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Оформление бороды и усов</td>
+                                        <td>600 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Комплекс: стрижка + борода</td>
+                                        <td>1400 руб.</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1590540178356-7a3c4e3c0e6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1590540178356-7a3c4e3c0e6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=600&q=80');"></div>
                     <div class="service-content">
                         <h3>Женские стрижки</h3>
                         <p>Стрижки, укладки, окрашивание и сложные техники от стилистов с опытом. Профессиональная косметика.</p>
@@ -824,48 +881,50 @@
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="price-accordion">
-                            <table class="price-table">
-                                <tr>
-                                    <th>Услуга</th>
-                                    <th>Цена</th>
-                                </tr>
-                                <tr>
-                                    <td>Женская стрижка (короткие волосы)</td>
-                                    <td>1200 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Женская стрижка (средние волосы)</td>
-                                    <td>1500 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Женская стрижка (длинные волосы)</td>
-                                    <td>1800 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Стрижка челки</td>
-                                    <td>400 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Укладка</td>
-                                    <td>800 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Вечерняя укладка</td>
-                                    <td>1500 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Окрашивание (короткие волосы)</td>
-                                    <td>2000 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Окрашивание (длинные волосы)</td>
-                                    <td>3500 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Мелирование</td>
-                                    <td>2500 руб.</td>
-                                </tr>
-                            </table>
+                            <div class="price-table-container">
+                                <table class="price-table">
+                                    <tr>
+                                        <th>Услуга</th>
+                                        <th>Цена</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Женская стрижка (короткие волосы)</td>
+                                        <td>1200 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Женская стрижка (средние волосы)</td>
+                                        <td>1500 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Женская стрижка (длинные волосы)</td>
+                                        <td>1800 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Стрижка челки</td>
+                                        <td>400 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Укладка</td>
+                                        <td>800 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Вечерняя укладка</td>
+                                        <td>1500 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Окрашивание (короткие волосы)</td>
+                                        <td>2000 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Окрашивание (длинные волосы)</td>
+                                        <td>3500 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Мелирование</td>
+                                        <td>2500 руб.</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -880,48 +939,50 @@
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="price-accordion">
-                            <table class="price-table">
-                                <tr>
-                                    <th>Услуга</th>
-                                    <th>Цена</th>
-                                </tr>
-                                <tr>
-                                    <td>Маникюр (аппаратный)</td>
-                                    <td>1200 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Маникюр (комбинированный)</td>
-                                    <td>1000 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Покрытие лаком</td>
-                                    <td>400 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Покрытие гель-лаком</td>
-                                    <td>1500 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Снятие покрытия</td>
-                                    <td>300 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Укрепление ногтей гелем</td>
-                                    <td>800 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Педикюр</td>
-                                    <td>1800 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>Педикюр с покрытием</td>
-                                    <td>2200 руб.</td>
-                                </tr>
-                                <tr>
-                                    <td>SPA-уход для рук</td>
-                                    <td>1000 руб.</td>
-                                </tr>
-                            </table>
+                            <div class="price-table-container">
+                                <table class="price-table">
+                                    <tr>
+                                        <th>Услуга</th>
+                                        <th>Цена</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Маникюр (аппаратный)</td>
+                                        <td>1200 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Маникюр (комбинированный)</td>
+                                        <td>1000 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Покрытие лаком</td>
+                                        <td>400 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Покрытие гель-лаком</td>
+                                        <td>1500 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Снятие покрытия</td>
+                                        <td>300 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Укрепление ногтей гелем</td>
+                                        <td>800 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Педикюр</td>
+                                        <td>1800 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Педикюр с покрытием</td>
+                                        <td>2200 руб.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SPA-уход для рук</td>
+                                        <td>1000 руб.</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -951,7 +1012,7 @@
                 <div class="master-card">
                     <div class="master-img" style="background-image: url('https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="master-info">
-                        <h3>Ольга Сидорova</h3>
+                        <h3>Ольга Сидорова</h3>
                         <p>Мастер ногтевого сервиса с 10-летним опытом</p>
                     </div>
                 </div>
@@ -968,7 +1029,7 @@
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1633681926022-84c23e8f85b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1596466596120-2a8e4b5d1a51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=600&q=80');"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1596466596120-2a8e4b5d1a51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
             </div>
         </div>
@@ -1050,6 +1111,10 @@
         // Модальные окна
         function showPhoneModal() {
             document.getElementById('phoneModal').style.display = 'flex';
+            // Отслеживание цели в Яндекс.Метрике
+            if (typeof ym !== 'undefined') {
+                ym(104083042, 'reachGoal', 'CALL_BUTTON');
+            }
         }
 
         function closeModal() {
@@ -1072,6 +1137,11 @@
             button.classList.toggle('active');
             const accordion = button.nextElementSibling;
             accordion.classList.toggle('open');
+            
+            // Отслеживание цели в Яндекс.Метрике
+            if (typeof ym !== 'undefined' && accordion.classList.contains('open')) {
+                ym(104083042, 'reachGoal', 'PRICE_VIEW');
+            }
         }
 
         // Слайдер отзывов
@@ -1121,7 +1191,3 @@
     </script>
 </body>
 </html>
-
-
-
-
