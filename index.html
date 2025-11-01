@@ -81,7 +81,7 @@
             font-weight: 600;
         }
 
-        .service-content h3, .contact-info h3 {
+        .service-content h3, .master-info h3, .contact-info h3 {
             font-weight: 500;
         }
 
@@ -918,54 +918,82 @@
         <div class="container">
             <h2 class="section-title">Контакты</h2>
             <div class="contacts-grid">
+                <div class="map-container">
+                    <a href="https://yandex.ru/maps/-/CLQ3V46v" target="_blank">
+                       <img src="Logo/Logo.PNG" 
+                             alt="Карта проезда к парикмахерской Цирюльня" 
+                             style="width:100%;height:100%;object-fit:cover;border-radius:10px;cursor:pointer;">
+                    </a>
+                </div>
                 <div class="contact-info">
                     <h3>Приходите к нам</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Казань, ул. Нариманова, 72/52</p>
-                    <p><i class="fas fa-phone-alt"></i> 8 (843) 123-45-67</p>
-                    <p><i class="fas fa-clock"></i> Пн-Пт: 9:00-21:00, Сб-Вс: 10:00-20:00</p>
-                    <p><i class="fas fa-subway"></i> Ближайшее метро: Площадь Тукая (10 минут пешком)</p>
-                    <p><i class="fas fa-bus"></i> Остановка: ул. Нариманова (автобусы 5, 23, 56, 68)</p>
-                    <p><i class="fas fa-car"></i> Парковка: бесплатная парковка во дворе</p>
-                    <button class="cta-button" onclick="showPhoneModal()">Позвонить</button>
-                </div>
-                <div class="map-container">
-                    <a href="https://yandex.ru/maps/43/kazan/?ll=49.106414%2C55.796289&mode=whatshere&whatshere%5Bpoint%5D=49.106414%2C55.796289&whatshere%5Bzoom%5D=17&z=17" target="_blank">
-                        <img src="https://static-maps.yandex.ru/1.x/?ll=49.106414,55.796289&size=650,450&z=16&l=map&pt=49.106414,55.796289,pm2rdm" alt="Карта с расположением парикмахерской Цирюльня в Казани" width="100%">
-                    </a>
+                    <p><i class="fas fa-phone"></i> 8 (843) 123-45-67</p>
+                    <p><i class="fas fa-clock"></i> Ежедневно с 10:00 до 19:00</p>
+                    <button class="cta-button" onclick="showPhoneModal()">Позвонить для записи</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Футер -->
-    <footer>
+    <footer id="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="logo" style="color: white; margin-bottom: 15px;">Цирюльня</div>
-                <p>Парикмахерская в центре Казани с 2004 года</p>
-                <p>Казань, ул. Нариманова, 72/52</p>
+                <div class="footer-column">
+                    <p>«Цирюльня» - это парикмахерская с уютной атмосферой, где каждый клиент найдет услугу по душе. Работаем с 2004 года.</p>
+                </div>
             </div>
             <div class="copyright">
-                &copy; 2023 Парикмахерская «Цирюльня». Все права защищены.
+                <p>&copy; 2025 Цирюльня. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Функции для модального окна
+        // Навигация
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Модальные окна
         function showPhoneModal() {
             document.getElementById('phoneModal').style.display = 'flex';
+            // Отслеживание цели в Яндекс.Метрике
+            if (typeof ym !== 'undefined') {
+                ym(104083042, 'reachGoal', 'CALL_BUTTON');
+            }
         }
 
         function closeModal() {
-            document.getElementById('phoneModal').style.display = 'none';
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = 'none';
+            });
         }
 
         // Закрытие модального окна при клике вне его
-        window.onclick = function(event) {
-            const modal = document.getElementById('phoneModal');
-            if (event.target === modal) {
-                closeModal();
+        window.addEventListener('click', function(event) {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Аккордеон для цен
+        function toggleAccordion(button) {
+            button.classList.toggle('active');
+            const accordion = button.nextElementSibling;
+            accordion.classList.toggle('open');
+            
+            // Отслеживание цели в Яндекс.Метрике
+            if (typeof ym !== 'undefined' && accordion.classList.contains('open')) {
+                ym(104083042, 'reachGoal', 'PRICE_VIEW');
             }
         }
 
@@ -984,68 +1012,8 @@
             overlay.classList.remove('active');
         }
 
-        // Функция для аккордеона цен
-        function toggleAccordion(button) {
-            const accordion = button.nextElementSibling;
-            const isOpen = accordion.classList.contains('open');
-            
-            // Закрываем все открытые аккордеоны
-            document.querySelectorAll('.price-accordion').forEach(item => {
-                item.classList.remove('open');
-            });
-            
-            // Убираем активный класс со всех кнопок
-            document.querySelectorAll('.price-toggle').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Если аккордеон был закрыт, открываем его
-            if (!isOpen) {
-                accordion.classList.add('open');
-                button.classList.add('active');
-            }
-        }
-
-        // Плавная прокрутка для навигации
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Подсветка активного пункта меню при прокрутке
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 100) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
+        // Закрытие бокового меню при клике на overlay
+        document.getElementById('overlay').addEventListener('click', closeSideMenu);
     </script>
 </body>
 </html>
