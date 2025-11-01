@@ -81,7 +81,7 @@
             font-weight: 600;
         }
 
-        .service-content h3, .master-info h3, .contact-info h3 {
+        .service-content h3, .contact-info h3 {
             font-weight: 500;
         }
 
@@ -336,46 +336,6 @@
             background-color: #f9f9f9;
         }
 
-        /* Мастера */
-        .masters {
-            padding: 70px 0;
-        }
-
-        .masters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .master-card {
-            text-align: center;
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .master-img {
-            height: 280px;
-            background-color: var(--accent-2);
-            background-position: center;
-            background-size: cover;
-        }
-
-        .master-info {
-            padding: 20px;
-        }
-
-        .master-info h3 {
-            color: var(--accent-3);
-            margin-bottom: 5px;
-        }
-
-        .master-info p {
-            color: var(--accent-1);
-            font-style: italic;
-        }
-
         /* Галерея */
         .gallery {
             padding: 70px 0;
@@ -401,56 +361,6 @@
 
         .gallery-item:hover {
             transform: scale(1.03);
-        }
-
-        /* Отзывы */
-        .testimonials {
-            padding: 70px 0;
-        }
-
-        .testimonials-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            display: none;
-        }
-
-        .testimonial.active {
-            display: block;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--accent-3);
-        }
-
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .testimonial-nav button {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--accent-1);
-            cursor: pointer;
-            margin: 0 10px;
         }
 
         /* Контакты */
@@ -750,7 +660,6 @@
                     <ul>
                         <li><a href="#main" class="nav-link active">Главная</a></li>
                         <li><a href="#services" class="nav-link">Услуги и цены</a></li>
-                        <li><a href="#masters" class="nav-link">Наши мастера</a></li>
                         <li><a href="#gallery" class="nav-link">Галерея работ</a></li>
                         <li><a href="#contacts" class="nav-link">Контакты</a></li>
                     </ul>
@@ -765,7 +674,6 @@
     <div class="side-menu" id="sideMenu">
         <a href="#main" onclick="closeSideMenu()"><i class="fas fa-home"></i> Главная</a>
         <a href="#services" onclick="closeSideMenu()"><i class="fas fa-scissors"></i> Услуги и цены</a>
-        <a href="#masters" onclick="closeSideMenu()"><i class="fas fa-user"></i> Наши мастера</a>
         <a href="#gallery" onclick="closeSideMenu()"><i class="fas fa-image"></i> Галерея работ</a>
         <a href="#contacts" onclick="closeSideMenu()"><i class="fas fa-phone"></i> Контакты</a>
         <a href="javascript:void(0)" onclick="showPhoneModal(); closeSideMenu();"><i class="fas fa-phone-alt"></i> Позвонить</a>
@@ -990,36 +898,6 @@
         </div>
     </section>
 
-    <!-- Мастера -->
-    <section class="masters" id="masters">
-        <div class="container">
-            <h2 class="section-title">Наши мастера</h2>
-            <div class="masters-grid">
-                <div class="master-card">
-                    <div class="master-img" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="master-info">
-                        <h3>Анна Иванова</h3>
-                        <p>Стилист-колорист с 12-летним опытом</p>
-                    </div>
-                </div>
-                <div class="master-card">
-                    <div class="master-img" style="background-image: url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="master-info">
-                        <h3>Максим Петров</h3>
-                        <p>Барбер с 8-летним опытом</p>
-                    </div>
-                </div>
-                <div class="master-card">
-                    <div class="master-img" style="background-image: url('https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="master-info">
-                        <h3>Ольга Сидорова</h3>
-                        <p>Мастер ногтевого сервиса с 10-летним опытом</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Галерея -->
     <section class="gallery" id="gallery">
         <div class="container">
@@ -1035,141 +913,61 @@
         </div>
     </section>
 
-    <!-- Отзывы -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Отзывы наших клиентов</h2>
-            <div class="testimonials-slider">
-                <div class="testimonial active">
-                    <p class="testimonial-text">"Хожу в «Цирюльню» уже более 5 лет. Всегда качественный сервис, приятная атмосфера и доступные цены. Мастера с большим опытом, работают с 2004 года!"</p>
-                    <p class="testimonial-author">Екатерина, постоянный клиент</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"Привожу сюда своих сыновей на стрижку. Мастера находят подход даже к непоседливым детям, а цены действительно семейные. Используют качественные материалы."</p>
-                    <p class="testimonial-author">Ольга, мама двоих детей</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"Лучшая парикмахерская в Казани! Делала сложное окрашивание - результат превзошел все ожидания. Профессиональная косметика и опытные мастера!"</p>
-                    <p class="testimonial-author">Мария, клиент</p>
-                </div>
-                <div class="testimonial-nav">
-                    <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
-                    <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Контакты -->
     <section class="contacts" id="contacts">
         <div class="container">
             <h2 class="section-title">Контакты</h2>
             <div class="contacts-grid">
-                <div class="map-container">
-                    <a href="https://yandex.ru/maps/-/CLQ3V46v" target="_blank">
-                       <img src="Logo/Logo.PNG" 
-                             alt="Карта проезда к парикмахерской Цирюльня" 
-                             style="width:100%;height:100%;object-fit:cover;border-radius:10px;cursor:pointer;">
-                    </a>
-                </div>
                 <div class="contact-info">
                     <h3>Приходите к нам</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Казань, ул. Нариманова, 72/52</p>
-                    <p><i class="fas fa-phone"></i> 8 (843) 123-45-67</p>
-                    <p><i class="fas fa-clock"></i> Ежедневно с 10:00 до 19:00</p>
-                    <button class="cta-button" onclick="showPhoneModal()">Позвонить для записи</button>
+                    <p><i class="fas fa-phone-alt"></i> 8 (843) 123-45-67</p>
+                    <p><i class="fas fa-clock"></i> Пн-Пт: 9:00-21:00, Сб-Вс: 10:00-20:00</p>
+                    <p><i class="fas fa-subway"></i> Ближайшее метро: Площадь Тукая (10 минут пешком)</p>
+                    <p><i class="fas fa-bus"></i> Остановка: ул. Нариманова (автобусы 5, 23, 56, 68)</p>
+                    <p><i class="fas fa-car"></i> Парковка: бесплатная парковка во дворе</p>
+                    <button class="cta-button" onclick="showPhoneModal()">Позвонить</button>
+                </div>
+                <div class="map-container">
+                    <a href="https://yandex.ru/maps/43/kazan/?ll=49.106414%2C55.796289&mode=whatshere&whatshere%5Bpoint%5D=49.106414%2C55.796289&whatshere%5Bzoom%5D=17&z=17" target="_blank">
+                        <img src="https://static-maps.yandex.ru/1.x/?ll=49.106414,55.796289&size=650,450&z=16&l=map&pt=49.106414,55.796289,pm2rdm" alt="Карта с расположением парикмахерской Цирюльня в Казани" width="100%">
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Футер -->
-    <footer id="footer">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <p>«Цирюльня» - это парикмахерская с уютной атмосферой, где каждый клиент найдет услугу по душе. Работаем с 2004 года.</p>
-                </div>
+                <div class="logo" style="color: white; margin-bottom: 15px;">Цирюльня</div>
+                <p>Парикмахерская в центре Казани с 2004 года</p>
+                <p>Казань, ул. Нариманова, 72/52</p>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Цирюльня. Все права защищены.</p>
+                &copy; 2023 Парикмахерская «Цирюльня». Все права защищены.
             </div>
         </div>
     </footer>
 
     <script>
-        // Навигация
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Модальные окна
+        // Функции для модального окна
         function showPhoneModal() {
             document.getElementById('phoneModal').style.display = 'flex';
-            // Отслеживание цели в Яндекс.Метрике
-            if (typeof ym !== 'undefined') {
-                ym(104083042, 'reachGoal', 'CALL_BUTTON');
-            }
         }
 
         function closeModal() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.style.display = 'none';
-            });
+            document.getElementById('phoneModal').style.display = 'none';
         }
 
         // Закрытие модального окна при клике вне его
-        window.addEventListener('click', function(event) {
-            document.querySelectorAll('.modal').forEach(modal => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
-
-        // Аккордеон для цен
-        function toggleAccordion(button) {
-            button.classList.toggle('active');
-            const accordion = button.nextElementSibling;
-            accordion.classList.toggle('open');
-            
-            // Отслеживание цели в Яндекс.Метрике
-            if (typeof ym !== 'undefined' && accordion.classList.contains('open')) {
-                ym(104083042, 'reachGoal', 'PRICE_VIEW');
+        window.onclick = function(event) {
+            const modal = document.getElementById('phoneModal');
+            if (event.target === modal) {
+                closeModal();
             }
         }
-
-        // Слайдер отзывов
-        const testimonials = document.querySelectorAll('.testimonial');
-        const prevBtn = document.getElementById('prev-testimonial');
-        const nextBtn = document.getElementById('next-testimonial');
-        let currentTestimonial = 0;
-
-        function showTestimonial(index) {
-            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-            testimonials[index].classList.add('active');
-        }
-
-        prevBtn.addEventListener('click', function() {
-            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        });
-
-        nextBtn.addEventListener('click', function() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        });
-
-        // Автопрокрутка отзывов
-        setInterval(function() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }, 5000);
 
         // Функции для бокового меню
         function toggleSideMenu() {
@@ -1186,8 +984,68 @@
             overlay.classList.remove('active');
         }
 
-        // Закрытие бокового меню при клике на overlay
-        document.getElementById('overlay').addEventListener('click', closeSideMenu);
+        // Функция для аккордеона цен
+        function toggleAccordion(button) {
+            const accordion = button.nextElementSibling;
+            const isOpen = accordion.classList.contains('open');
+            
+            // Закрываем все открытые аккордеоны
+            document.querySelectorAll('.price-accordion').forEach(item => {
+                item.classList.remove('open');
+            });
+            
+            // Убираем активный класс со всех кнопок
+            document.querySelectorAll('.price-toggle').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Если аккордеон был закрыт, открываем его
+            if (!isOpen) {
+                accordion.classList.add('open');
+                button.classList.add('active');
+            }
+        }
+
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Подсветка активного пункта меню при прокрутке
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
